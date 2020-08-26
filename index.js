@@ -433,44 +433,4 @@ function DeepTree(props) {
       </ul>
     </div>
   );
-}
-
-/*
-function Link(props) {
-  return <a href={props.url}>{props.textLink}</a>;
-}
-
-function Item(props) {
-  return (
-    <li>
-      <Link url={props.url} textLink={props.textLink} />
-    </li>
-  );
-}
-
-function List() {
-  return (
-    <ul>
-      <Item url="#" textLink="Главная" />
-      <Item url="#" textLink="Улица" />
-      <Item url="#" textLink="Квартира" />
-    </ul>
-  );
-}
-
-function Time() {
-  return <p className="text">На часах: {new Date().toLocaleTimeString()}.</p>;
 } 
-
-*/
-
-function product() {
-  const element = (
-    <div className="wrapper">
-      <DeepTree className="surface"  />
-    </div>
-  );
-  ReactDOM.render(element, document.getElementById("react-deep-tree"));
-} 
-product();
- 
