@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/linksplatform/react-deep-tree/issues"
   },
-  "homepage": "https://github.com/linksplatform/react-deep-tree#readme"
+  "homepage": "https://github.com/linksplatform/react-deep-tree#readme",
+  "dependencies": {
+    "react": "^16.13.1"
+  }
 }
