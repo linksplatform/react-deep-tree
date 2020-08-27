@@ -6,7 +6,7 @@
 npm i react-deep-tree
 ```
 
-## Use
+## [Use](https://codesandbox.io/s/react-deep-tree-example-kw2fi)
 
 ```JavaScript
 import React from "react";
