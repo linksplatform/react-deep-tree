@@ -1,5 +1,5 @@
-import React from 'react'; 
- 
+import React from 'react';
+
 export function DeepTree(props) {
   return (
     <div className={props.className}>
@@ -436,3 +436,5 @@ export function DeepTree(props) {
     </div>
   );
 }
+
+export default DeepTree;

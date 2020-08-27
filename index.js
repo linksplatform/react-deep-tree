@@ -102,4 +102,5 @@ function DeepTree(props) {
                                 react_1.default.createElement("div", { className: "item" }, "\u0421\u043C. \u0442\u0430\u043A\u0436\u0435 \u0441\u0442\u0430\u0442\u044C\u044E \u0412\u0438\u043A\u0438\u043F\u0435\u0434\u0438\u044F: \u043E\u0442\u0432\u0435\u0442\u044B \u043D\u0430 \u043A\u0440\u0438\u0442\u0438\u043A\u0443.")))))))));
 }
 exports.DeepTree = DeepTree;
+exports.default = DeepTree;
 //# sourceMappingURL=index.js.map
