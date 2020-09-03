@@ -1,8 +1,8 @@
 import React from 'react';
 
 function TreeNode(props) {
-  const myData = props.data.content; //Заношу data.content в переменную myData
-  const myDataChildren = props.data.children; //Заношу data.ребенок в переменную myData
+  const myData = props.data.content; 
+  const myDataChildren = props.data.children; 
   let item;
   let treeNodes;
   let treeNodesList;
@@ -21,12 +21,15 @@ function TreeNode(props) {
     </li>
   );
 }
-
-function DeepTree(props) {
-  const myData = props.data; //Заношу data в переменную myData
+ 
+//Возвращаем из DeepTree компонент TreeNode с ключом data : {obj}
+function DeepTree(props) { 
+  //Получаем для удобства переменную в которую заносим props.data
+  const myData = props.data; 
   return <TreeNode data={myData} />;
 }
-
+  
+//Экспортируем дефолтный App, который вернет компонент DeepTree с ключом data : {obj}
 export function App() {  
   return  ( 
     <ul> 
@@ -34,4 +37,4 @@ export function App() {
     </ul>
   )
 }
-export default App;
+export default App; 
