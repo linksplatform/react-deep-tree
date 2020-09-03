@@ -6,10 +6,12 @@ function TreeNode(props) {
   let item;
   let treeNodes;
   let treeNodesList;
-
+ 
+  //Если по ключу  content не пусто, тогда обрисовываем element.
   if (myData !== undefined) {
     item = <div>{myData}</div>;
-  }
+  } 
+
   if (myDataChildren !== undefined && myDataChildren.length > 0) {
     treeNodes = myDataChildren.map((child) => <TreeNode data={child} />);
     treeNodesList = <ul>{treeNodes}</ul>;
