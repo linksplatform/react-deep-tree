@@ -25,18 +25,10 @@ function TreeNode(props) {
 }
  
 //Возвращаем из DeepTree компонент TreeNode с ключом data : {obj}
-function DeepTree(props) { 
+export function DeepTree(props) { 
   //Получаем для удобства переменную в которую заносим props.data
   const myData = props.data; 
   return <TreeNode data={myData} />;
 }
   
-//Экспортируем дефолтный App, который вернет компонент DeepTree с ключом data : {obj}
-export function App() {  
-  return  ( 
-    <ul> 
-      <DeepTree data={data}/>
-    </ul>
-  )
-}
-export default App; 
+export default DeepTree; 
