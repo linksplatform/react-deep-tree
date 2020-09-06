@@ -1,19 +1,30 @@
 import React from 'react';
 
-function TreeNode(props) {
-  const myData = props.data.content; 
-  const myDataChildren = props.data.children; 
-  let item;
-  let treeNodes;
-  let treeNodesList;
- 
-  //Если по ключу  content не пусто, тогда обрисовываем element.
-  if (myData !== undefined) {
-    item = <div>{myData}</div>;
-  } 
+const data = {
+  content: "данные или текст",
+  children: [
+    {
+      content: "данные или текст для вложенного элемента 1",
+      children: [],
+    },
+    {
+      content: "данные или текст для вложенного элемента 2",
+      children: [],
+    },
+  ],
+};
 
-  if (myDataChildren !== undefined && myDataChildren.length > 0) {
-    treeNodes = myDataChildren.map((child) => <TreeNode data={child} />);
+function TreeNode(props) {
+  const content = props.data.content; //Заношу data.content в переменную myData
+  const children = props.data.children; //Заношу data.ребенок в переменную myData
+  let item;
+  let treeNodesList;
+
+  if (content !== undefined) {
+    item = <div>{content}</div>;
+  }
+  if (children && children.length > 0) {
+    const treeNodes = children.map((element) => <TreeNode data={element} />);
     treeNodesList = <ul>{treeNodes}</ul>;
   }
   return (
@@ -23,12 +34,10 @@ function TreeNode(props) {
     </li>
   );
 }
- 
+    
 //Возвращаем из DeepTree компонент TreeNode с ключом data : {obj}
-export function DeepTree(props) { 
-  //Получаем для удобства переменную в которую заносим props.data
-  const myData = props.data; 
-  return <TreeNode data={myData} />;
+export function DeepTree(props) {
+  return <TreeNode data={props.data} />;
 }
   
 export default DeepTree; 
