@@ -12,7 +12,21 @@ npm i react-deep-tree
 import React from "react";
 import DeepTree from "react-deep-tree";
 
+const data = {
+  content: "Text of a first level element",
+  children: [
+    {
+      content: "Text of a second level element",
+      children: [],
+    },
+    {
+      content: "Text of a second level element",
+      children: [],
+    },
+  ],
+};
+
 export default function App() {
-  return <DeepTree />;
+  return <DeepTree data={data} />;
 }
 ```
