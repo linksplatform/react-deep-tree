@@ -14,7 +14,7 @@ function TreeNode(props) {
         item = react_1.default.createElement("div", null, content);
     }
     if (children && children.length > 0) {
-        const treeNodes = children.map(element => react_1.default.createElement(TreeNode, { data: element }));
+        const treeNodes = children.map(child => react_1.default.createElement(TreeNode, { data: child }));
         treeNodesList = react_1.default.createElement("ul", null, treeNodes);
     }
     return (react_1.default.createElement("li", null,

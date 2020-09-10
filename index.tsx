@@ -9,7 +9,7 @@ function TreeNode(props) {
     item = <div>{content}</div>;
   }
   if (children && children.length > 0) {
-    const treeNodes = children.map(element => <TreeNode data={element} />);
+    const treeNodes = children.map(child => <TreeNode data={child} />);
     treeNodesList = <ul>{treeNodes}</ul>;
   }
   return (

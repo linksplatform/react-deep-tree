@@ -1,13 +1,13 @@
 {
   "name": "react-deep-tree",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "LGPL-3.0",
   "author": "LinksPlatform <linksplatformtechnologies@gmail.com> (https://github.com/linksplatform)",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/linksplatform/react-deep-tree.git"
   },
-  "description": "",
+  "description": "An UI component for tree rendering.",
   "dependencies": {
     "debug": "^4.1.1",
     "tslint": "^6.1.2",
