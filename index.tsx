@@ -21,7 +21,11 @@ function TreeNode(props) {
 }
 
 export function DeepTree(props) {
-  return <TreeNode data={props.data} />;
+  return (
+    <ul>
+      <TreeNode data={props.data} />
+    </ul>
+  );
 }
 
 export default DeepTree;

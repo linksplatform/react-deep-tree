@@ -22,7 +22,8 @@ function TreeNode(props) {
         treeNodesList));
 }
 function DeepTree(props) {
-    return react_1.default.createElement(TreeNode, { data: props.data });
+    return (react_1.default.createElement("ul", null,
+        react_1.default.createElement(TreeNode, { data: props.data })));
 }
 exports.DeepTree = DeepTree;
 exports.default = DeepTree;
