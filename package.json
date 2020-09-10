@@ -18,7 +18,7 @@
     "build": "npx tsc --project tsconfig.json",
     "lint": "npx tslint -c tslint.json --project tsconfig.json"
   },
-  "pre-commit" : [
+  "pre-commit": [
     "lint",
     "build"
   ],
