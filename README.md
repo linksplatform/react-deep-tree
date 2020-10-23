@@ -1,5 +1,7 @@
 # react-deep-tree
 
+An attempt to make traversing trees with deep-deep structure user-friendly. Started as a part of our [UI prototype](https://github.com/linksplatform/InfiniteDepthTreeWebUIPrototype).
+
 ## Install
 
 ```Shell
