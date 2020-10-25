@@ -1,0 +1,39 @@
+* {
+    scroll-behavior: smooth;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    border: 0;
+    outline: none;
+}
+
+html,
+body {
+    background-color: bisque;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+
+}
+
+h2 {
+  font-size: 48px;
+  color: #000;
+}
+
+p {
+  font-size: 16px;
+  color: #000;
+}
+
+img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
