@@ -61,7 +61,7 @@ const webpackConfig = {
         port: 7000
     },
 
-    devtool: addMapCard('source-map'),
+    devtool: addMapCard('eval-source-map'),
 
     plugins: [
         new HtmlWebpackPlugin({
