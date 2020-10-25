@@ -3,19 +3,10 @@ import TreeNode from "./TreeNode.jsx";
 import React from "react";
 
 export default function DeepTree({data}) {
+    //data  - это props.data
+    //props = data={data}
     return (
-        <ul>
-            {console.log(data)}
-            {
-                data.map((element, index) => {
-                    return (
-                        <DeepTree  data={element} key={index}>
-                            <TreeNode/>
-                        </DeepTree>
-                    )
-                })
-            }
-        </ul>
+            data.map((object, index) => <ul>{<TreeNode data={object} key={index}/>}</ul>)
     );
     //return <TreeNode data={props.data} />;
 }

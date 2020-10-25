@@ -32,6 +32,7 @@ const data = [
 
 export default function App() {
     return (
+        //Под props  получаем data
         <DeepTree data={data}/>
     )
 }
