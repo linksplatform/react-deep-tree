@@ -18,7 +18,7 @@ function getName(expansion){
 
 function getBabelUse(presets, loader = 'babel-loader'){
     return {
-        loader: 'babel-loader',
+        loader: loader,
         options: {
             presets: presets,
         }
@@ -34,14 +34,14 @@ const webpackConfig = {
     context: path.resolve(__dirname, 'src'),
     mode: 'development',
 
-    entry: ['@babel/polyfill', './scripts/main.js'],
+    entry: ['@babel/polyfill', './scripts/main.ts'],
     output: {
         filename: getName('js'),
         path: path.resolve(__dirname, 'dist'),
     },
 
     resolve: {
-        extensions: ['.js'],
+        extensions: [ '.tsx', '.ts', '.js' ],
         alias: {
             "@": path.resolve(__dirname, 'src'),
         }
@@ -106,9 +106,9 @@ const webpackConfig = {
                 use: getBabelUse(['@babel/preset-env'])
             },
             {
-                test: /\.ts$/,
+                test: /\.tsx?$/,
+                use: 'ts-loader',
                 exclude: /node_modules/,
-                use: getBabelUse(['@babel/preset-env', '@babel/preset-typescript'])
             },
             {
                 test: /\.jsx$/,

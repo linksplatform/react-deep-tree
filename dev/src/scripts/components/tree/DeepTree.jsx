@@ -6,9 +6,9 @@ export default function DeepTree({data}) {
     //data  - это props.data
     //props = data={data}
     return (
-        data.map((object) =>
+        data.map((object, index) =>
             (
-                <ul key={object.id}>
+                <ul key={index}>
                     <TreeNode data={object}/>
                 </ul>
             )

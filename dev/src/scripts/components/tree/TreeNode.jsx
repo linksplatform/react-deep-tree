@@ -11,7 +11,7 @@ export default function TreeNode({data}) {
         item = <div>{content}</div>;
     }
     if (children && children.length > 0) {
-        const treeNodes = children.map((element) => <TreeNode data={element} key={element.id} />);
+        const treeNodes = children.map((element, index) => <TreeNode data={element} key={index} />);
         treeNodesList = <ul>{treeNodes}</ul>;
     }
     return (
