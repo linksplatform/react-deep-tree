@@ -1,7 +1,7 @@
 name: Folders-root
  
 # When to launch. During which event
-on: [commit_comment] 
+on: [push, commit_comment] 
 
 jobs:
   gh-pages:
@@ -14,4 +14,7 @@ jobs:
 
     steps:
       - name: repo
-        uses: actions/checkout@v1
+        uses: actions/checkout@v1  
+         
+      - name: list-repo
+        run: ls -la
