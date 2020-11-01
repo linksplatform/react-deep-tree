@@ -1,6 +1,11 @@
 // @ts-ignore
 import React from 'react';
 
+interface DataNode {
+    readonly content: any
+    readonly children: DataNode[]
+}
+
 function TreeNode({data}) {
     const {content, children} = data;
     let item;
@@ -24,13 +29,7 @@ function TreeNode({data}) {
 
 export function DeepTree({data}) {
     return (
-        data.map((object, index) =>
-            (
-                <ul key={index}>
-                    <TreeNode data={object}/>
-                </ul>
-            )
-        )
+        <ul> {data.map((object, index) => <TreeNode key={index} data={object} />)} </ul>
     );
 }
 

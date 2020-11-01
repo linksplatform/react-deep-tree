@@ -21,8 +21,10 @@ function TreeNode({ data }) {
         treeNodesList));
 }
 function DeepTree({ data }) {
-    return (data.map((object, index) => (react_1.default.createElement("ul", { key: index },
-        react_1.default.createElement(TreeNode, { data: object })))));
+    return (react_1.default.createElement("ul", null,
+        " ",
+        data.map((object, index) => react_1.default.createElement(TreeNode, { key: index, data: object })),
+        " "));
 }
 exports.DeepTree = DeepTree;
 exports.default = DeepTree;
