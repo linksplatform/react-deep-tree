@@ -1,4 +1,4 @@
-//import DeepTree from "../components/tree/DeepTree";
+import DeepTree from "react-deep-tree";
 import React from "react";
 
 /*
