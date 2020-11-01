@@ -1,7 +1,7 @@
 name: Folders-root
  
 # When to launch. During which event
-on: [commit_comment]
+on: push
 
 jobs:
   gh-pages:
