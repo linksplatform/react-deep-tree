@@ -1,4 +1,4 @@
-import DeepTree from "react-deep-tree";
+//import DeepTree from "../components/tree/DeepTree";
 import React from "react";
 
 /*
@@ -38,6 +38,6 @@ const data: DataNode[] = [
 */
 
 export default function Index() {
-    return <DeepTree data={{}} />
-    //return <h1>Hello Next Test</h1>
+    //return <DeepTree data={'data'}/>
+    return <h1>Hello Next Test 1</h1>
 }

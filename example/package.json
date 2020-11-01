@@ -8,9 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "react-deep-tree": "linksplatform/react-deep-tree#master",
     "next": "10.0.0",
     "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-deep-tree": "linksplatform/react-deep-tree#master"
+    "react-dom": "17.0.1"
   }
 }

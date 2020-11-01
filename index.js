@@ -5,25 +5,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DeepTree = void 0;
 const react_1 = __importDefault(require("react"));
-function TreeNode(props) {
-    const content = props.data.content;
-    const children = props.data.children;
+function TreeNode({ data }) {
+    const { content, children } = data;
     let item;
     let treeNodesList;
     if (content !== undefined) {
         item = react_1.default.createElement("div", null, content);
     }
     if (children && children.length > 0) {
-        const treeNodes = children.map(child => react_1.default.createElement(TreeNode, { data: child }));
+        const treeNodes = children.map((element, index) => react_1.default.createElement(TreeNode, { data: element, key: index }));
         treeNodesList = react_1.default.createElement("ul", null, treeNodes);
     }
     return (react_1.default.createElement("li", null,
         item,
         treeNodesList));
 }
-function DeepTree(props) {
-    return (react_1.default.createElement("ul", null,
-        react_1.default.createElement(TreeNode, { data: props.data })));
+function DeepTree({ data }) {
+    return (data.map((object, index) => (react_1.default.createElement("ul", { key: index },
+        react_1.default.createElement(TreeNode, { data: object })))));
 }
 exports.DeepTree = DeepTree;
 exports.default = DeepTree;
