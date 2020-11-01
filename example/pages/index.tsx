@@ -16,7 +16,7 @@ const data: DataNode[] = [
         ],
     },
     {
-        content: "Text of a first level of the first element",
+        content: "Text of a first level of the first element2",
         children: [
             {
                 content: "Text of a second level of the first element",
