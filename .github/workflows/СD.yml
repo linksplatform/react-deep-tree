@@ -14,5 +14,5 @@ jobs:
       - name: list-repo
         run: ls -la  
         
-      - name: root
-        run: pwd
+      - name: open
+        run: cd example  | ls -la  
