@@ -1,7 +1,7 @@
 // @ts-ignore
 import React from 'react';
 
-interface DataNode {
+export interface DataNode {
     readonly content: any
     readonly children: DataNode[]
 }
