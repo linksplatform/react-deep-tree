@@ -20,4 +20,3 @@ jobs:
              npm i  
              ls -la  
              npm run export 
-             ls -la  
