@@ -1,10 +1,11 @@
 // @ts-ignore
 import React from 'react';
 
-export interface DataNode {
+interface DataNode {
     readonly content: any
     readonly children: DataNode[]
 }
+export type { DataNode };
 
 function TreeNode({data}) {
     const {content, children} = data;

@@ -1,5 +1,5 @@
 import DeepTree from "react-deep-tree";
-import DataNode from "react-deep-tree";
+import type { DataNode } from "react-deep-tree";
 import React from "react";
 
 const data: DataNode[] = [
