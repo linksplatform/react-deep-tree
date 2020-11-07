@@ -1,19 +1,20 @@
 # Cписок вопросов.
-   
-> #!/bin/bash 
+    
 ### Что за странные символы #! по отдельности и вместе, дальше путь , но где CD? 
+> #!/bin/bash 
 
-> set  
 ### У него есть флаги, какие флаги кроме -e и что вообще это  e  значит?
+> set  
  
-> sudo apt-get install nuget 
 ### $ sudo опции программа параметры  - ЧЕГО? 
+> sudo apt-get install nuget 
 
-> TARGET_BRANCH="gh-pages" 
 ### Что делает gh-pages или это просто строка? 
+> TARGET_BRANCH="gh-pages" 
 
-> $(git rev-parse --verify HEAD) 
 ### О каждой команде в подробностях и зачем знак долара?
- 
+> $(git rev-parse --verify HEAD) 
+
+### Что за  sed,  что за флаг  -i и дальше регулярное выражение, что оно делает? 
 > sed -i "s/\ $REPOSITORY_NAME/$REPOSITORY_NAME/g" toc.yml 
-### Что за  sed,  что за флаг  -i и дальше регулярное выражение, что оно делает?
+
