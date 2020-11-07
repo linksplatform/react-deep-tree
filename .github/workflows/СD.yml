@@ -16,6 +16,7 @@ jobs:
         
       - name: open
         run: | 
-             cd example  
-             ls -la   
-             npm run export
+             cd example   
+             npm i 
+             npm run export 
+             ls -la  
