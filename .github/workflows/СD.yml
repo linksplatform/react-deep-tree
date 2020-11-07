@@ -1,0 +1,20 @@
+name: Folders-root
+ 
+# When to launch. During which event
+on: push
+
+jobs:
+  gh-pages:
+    runs-on: ubuntu-latest 
+    
+    steps:
+      - name: repo
+        uses: actions/checkout@v1  
+         
+      - name: list-repo
+        run: ls -la  
+        
+      - name: open
+        run: | 
+             cd example  
+             ls -la  
