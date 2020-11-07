@@ -15,4 +15,6 @@ jobs:
         run: ls -la  
         
       - name: open
-        run: cd example  | ls -la  
+        run: | 
+             cd example  
+             ls -la  
