@@ -24,9 +24,9 @@ cd ..
 npm i
 npm run export
 
-cp -r gh-pages out
+cp -r out gh-pages
 
-cd out
+cd gh-pages
 echo "OK==========================================================================================================================================="
 
 git config user.name "$COMMIT_USER_NAME"
