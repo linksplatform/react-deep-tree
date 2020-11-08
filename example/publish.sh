@@ -16,7 +16,8 @@ ls
 npm i 
 ls
 npm run export  
-ls
+ls 
+echo VAR=losst
 
 
 # Now let's go have some fun with the cloned repo
