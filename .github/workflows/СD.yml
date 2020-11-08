@@ -13,7 +13,8 @@ jobs:
          
          
       - name: open-sh 
-        run: |    
+        run: |     
+             export REPOSITORY_NAME=$(basename ${{ github.repository }})
              cd example  
              chmod +x publish.sh
              ./publish.sh 
