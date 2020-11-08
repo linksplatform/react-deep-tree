@@ -28,6 +28,9 @@ cd out
 ls 
 echo "OK==========================================================================================================================================="
 
+git fetch
+git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH 
+
 git config user.name "$COMMIT_USER_NAME"
 git config user.email "$COMMIT_USER_EMAIL"
 git add --all
