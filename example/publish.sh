@@ -33,6 +33,6 @@ git remote add origin "https://linksplatform:$GITHUB_TOKEN@$REPOSITORY.git"
 git add --all
 git commit -m "Deploy to GitHub Pages: $SHA"
 
-git push "https://linksplatform:$GITHUB_TOKEN@$REPOSITORY.git" "$TARGET_BRANCH" 
+git push origin HEAD:$TARGET_BRANCH
 sleep 500
 cd ..
