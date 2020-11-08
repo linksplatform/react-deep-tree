@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e # Exit with nonzero exit code if anything fails
 
+
+
 TARGET_BRANCH="gh-pages" 
 COMMIT_USER_EMAIL="linksplatformtechnologies@gmail.com"
 COMMIT_USER_NAME="linksplatform"
@@ -23,7 +25,7 @@ ls
 npm i 
 ls
 npm run export  
-sleep 5
+sleep 15
 cd out
 ls 
 echo "OK==========================================================================================================================================="
@@ -36,6 +38,6 @@ git config user.email "$COMMIT_USER_EMAIL"
 git add --all
 git commit -m "Deploy to GitHub Pages: $SHA"
 
-git push
+git push --set-upstream origin gh-pages
 
 cd ..
