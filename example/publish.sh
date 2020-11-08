@@ -15,7 +15,8 @@ cd ..
 ls
 npm i 
 ls
-npm run export 
+npm run export  
+ls
 
 
 # Now let's go have some fun with the cloned repo
