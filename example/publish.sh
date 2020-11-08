@@ -18,7 +18,7 @@ ls
 npm i 
 ls
 npm run export  
-sleep 500
+sleep 15
 cd out
 ls 
 echo "OK==========================================================================================================================================="
@@ -34,5 +34,5 @@ git add --all
 git commit -m "Deploy to GitHub Pages: $SHA"
 
 git push origin HEAD:$TARGET_BRANCH
-sleep 500
+sleep 15
 cd ..
