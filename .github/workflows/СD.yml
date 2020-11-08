@@ -13,7 +13,8 @@ jobs:
          
          
       - name: open-sh 
-        run: |  
+        run: |   
+             ls -la  
              cd example ./publish.sh 
              ls -la  
       
