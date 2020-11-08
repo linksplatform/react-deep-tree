@@ -27,7 +27,6 @@ npm run export
 cp -a out/. gh-pages/
 
 cd gh-pages
-echo "OK==========================================================================================================================================="
 
 git config user.name "$COMMIT_USER_NAME"
 git config user.email "$COMMIT_USER_EMAIL"
