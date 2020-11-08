@@ -4,7 +4,7 @@ name: Folders-root
 on: push 
    
 env:
-  export GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   gh-pages:
@@ -21,7 +21,8 @@ jobs:
          
       - name: open-sh 
         run: |     
-             export REPOSITORY_NAME=$(basename ${{ github.repository }})
+             export REPOSITORY_NAME=$(basename ${{ github.repository }}) 
+             export GITHUB_TOKEN
              cd example  
              chmod +x publish.sh
              ./publish.sh 
