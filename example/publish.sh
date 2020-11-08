@@ -13,9 +13,10 @@ cd out || exit
 git remote rm origin
 git remote add origin "https://linksplatform:$GITHUB_TOKEN@$REPOSITORY.git"
 
+git fetch
+
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH 
 git rm -rf .
-git clean -fxd
 cd ..
  
 ls
