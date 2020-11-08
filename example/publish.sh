@@ -22,13 +22,10 @@ find -not -path "./.git/*" -not -name ".git" | grep git
 find -not -path "./.git/*" -not -name ".git" -delete
 cd ..
  
-ls
-npm i 
-ls
-npm run export  
-sleep 15
+#npm i 
+#npm run export  
+
 cd out
-ls 
 echo "OK==========================================================================================================================================="
 
 git config user.name "$COMMIT_USER_NAME"
