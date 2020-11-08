@@ -10,13 +10,15 @@ SHA=$(git rev-parse --verify HEAD)
 git clone "https://$REPOSITORY" out
 cd out || exit
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH 
-rm -rf *
+git rm -rf .
+git clean -fxd
 cd ..
  
 ls
 npm i 
 ls
-npm run export   
+npm run export  
+sleep 5
 cd out
 ls 
 echo "OK==========================================================================================================================================="
