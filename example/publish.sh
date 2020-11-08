@@ -12,8 +12,10 @@ git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
 cd ..
  
 ls
-npm i
-npm run export
+npm i 
+ls
+npm run export 
+ls
 cd out 
 ls
 
