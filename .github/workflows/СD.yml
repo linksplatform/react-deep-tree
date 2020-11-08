@@ -10,7 +10,11 @@ jobs:
     steps:
       - name: clone
         uses: actions/checkout@v1     
-         
+          
+      - name: test
+        run: |     
+             cd example/out  
+             ls -la  
          
       - name: open-sh 
         run: |     
