@@ -10,9 +10,6 @@ SHA=$(git rev-parse --verify HEAD)
 git clone "https://$REPOSITORY" out
 cd out || exit
 
-# Now let's go have some fun with the cloned repo 
-git config user.name "$COMMIT_USER_NAME"
-git config user.email "$COMMIT_USER_EMAIL"
 git remote rm origin
 git remote add origin "https://linksplatform:$GITHUB_TOKEN@$REPOSITORY.git"
 
@@ -30,6 +27,8 @@ cd out
 ls 
 echo "OK==========================================================================================================================================="
 
+git config user.name "$COMMIT_USER_NAME"
+git config user.email "$COMMIT_USER_EMAIL"
 git add --all
 git commit -m "Deploy to GitHub Pages: $SHA"
 
