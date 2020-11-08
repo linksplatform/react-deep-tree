@@ -18,12 +18,13 @@ git remote add origin "https://linksplatform:$GITHUB_TOKEN@$REPOSITORY.git"
 git fetch
 
 git checkout $TARGET_BRANCH
-find -not -path "./.git/*" -not -name ".git" | grep git
+
 find -not -path "./.git/*" -not -name ".git" -delete
+
 cd ..
  
-#npm i 
-#npm run export  
+npm i
+npm run export
 
 cd out
 echo "OK==========================================================================================================================================="
