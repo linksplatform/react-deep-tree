@@ -9,7 +9,7 @@ SHA=$(git rev-parse --verify HEAD)
 git clone "https://$REPOSITORY" out
 cd out || exit
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH 
-rm -rf *
+rm -rf ./
 cd ..
  
 ls
