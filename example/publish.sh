@@ -17,8 +17,9 @@ git remote add origin "https://linksplatform:$GITHUB_TOKEN@$REPOSITORY.git"
 
 git fetch
 
-git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH 
-git rm -rf .
+git checkout $TARGET_BRANCH
+find -not -path "./.git/*" -not -name ".git" | grep git
+find -not -path "./.git/*" -not -name ".git" -delete
 cd ..
  
 ls
