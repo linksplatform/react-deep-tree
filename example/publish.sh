@@ -10,10 +10,12 @@ git clone "https://$REPOSITORY" out
 cd out || exit
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
 cd ..
-
+ 
+ls
 npm i
 npm run export
-cd out
+cd out 
+ls
 
 
 # Now let's go have some fun with the cloned repo
