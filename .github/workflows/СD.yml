@@ -14,7 +14,6 @@ jobs:
          
       - name: open-sh 
         run: |  
-             cd example  
-             ./publish.sh 
+             cd example ./publish.sh 
              ls -la  
       
