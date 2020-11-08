@@ -1,7 +1,10 @@
 name: Folders-root
  
 # When to launch. During which event
-on: push
+on: push 
+   
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   gh-pages:
