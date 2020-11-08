@@ -13,7 +13,7 @@ jobs:
           
       - name: test
         run: |     
-             cd example/out  
+             cd example  
              ls -la  
          
       - name: open-sh 
