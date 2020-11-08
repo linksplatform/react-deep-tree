@@ -20,8 +20,9 @@ ls
 echo "OK==========================================================================================================================================="
 
 
-# Now let's go have some fun with the cloned repo
+# Now let's go have some fun with the cloned repo 
 git config user.name "$COMMIT_USER_NAME"
+git config user.email "$COMMIT_USER_EMAIL"
 git remote rm origin
 git remote add origin "https://linksplatform:$GITHUB_TOKEN@$REPOSITORY.git"
 
