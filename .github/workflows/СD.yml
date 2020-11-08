@@ -8,20 +8,13 @@ jobs:
     runs-on: ubuntu-latest 
     
     steps:
-      - name: repo
-        uses: actions/checkout@v1  
+      - name: clone
+        uses: actions/checkout@v1     
          
-      - name: list-repo
-        run: ls -la  
-        
-      - name: export 
-        run: | 
-             cd example   
-             npm i  
-             npm run export  
-             
-      - name: open-export  
-        run: | 
-             cd example/out 
+         
+      - name: open-sh 
+        run: |  
+             cd example  
+             ./publish.sh 
              ls -la  
       
