@@ -18,7 +18,7 @@ ls
 npm i 
 ls
 npm run export  
-sleep 15
+sleep 5
 cd out
 ls 
 echo "OK==========================================================================================================================================="
@@ -30,9 +30,11 @@ git config user.email "$COMMIT_USER_EMAIL"
 git remote rm origin
 git remote add origin "https://linksplatform:$GITHUB_TOKEN@$REPOSITORY.git"
 
+git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH 
+
 git add --all
 git commit -m "Deploy to GitHub Pages: $SHA"
 
 git push
-sleep 15
+
 cd ..
