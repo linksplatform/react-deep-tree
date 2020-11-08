@@ -1,16 +1,14 @@
 #!/bin/bash
 set -e # Exit with nonzero exit code if anything fails
 
-
-
 TARGET_BRANCH="gh-pages" 
 COMMIT_USER_EMAIL="linksplatformtechnologies@gmail.com"
 COMMIT_USER_NAME="linksplatform"
 REPOSITORY="github.com/linksplatform/$REPOSITORY_NAME"
 SHA=$(git rev-parse --verify HEAD)
 
-git clone "https://$REPOSITORY" out
-cd out || exit
+git clone "https://$REPOSITORY" gh-pages
+cd gh-pages || exit
 
 git remote rm origin
 git remote add origin "https://linksplatform:$GITHUB_TOKEN@$REPOSITORY.git"
@@ -25,6 +23,8 @@ cd ..
  
 npm i
 npm run export
+
+cp gh-pages/* out/
 
 cd out
 echo "OK==========================================================================================================================================="
