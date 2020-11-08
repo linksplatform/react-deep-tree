@@ -18,7 +18,7 @@ ls
 npm i 
 ls
 npm run export  
-sleep 5
+sleep 500
 cd out
 ls 
 echo "OK==========================================================================================================================================="
@@ -34,5 +34,5 @@ git add --all
 git commit -m "Deploy to GitHub Pages: $SHA"
 
 git push "https://linksplatform:$GITHUB_TOKEN@$REPOSITORY.git" "$TARGET_BRANCH" 
-sleep 5
+sleep 500
 cd ..
