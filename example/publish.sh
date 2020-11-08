@@ -1,7 +1,8 @@
 #!/bin/bash
 set -e # Exit with nonzero exit code if anything fails
 
-TARGET_BRANCH="gh-pages"
+TARGET_BRANCH="gh-pages" 
+COMMIT_USER_EMAIL="linksplatformtechnologies@gmail.com"
 COMMIT_USER_NAME="linksplatform"
 REPOSITORY="github.com/linksplatform/$REPOSITORY_NAME"
 SHA=$(git rev-parse --verify HEAD)
