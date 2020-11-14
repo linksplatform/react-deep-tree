@@ -13,11 +13,6 @@ jobs:
     steps:
       - name: clone
         uses: actions/checkout@v1     
-          
-      - name: test
-        run: |     
-             cd example  
-             ls -la  
          
       - name: open-sh 
         run: |     
@@ -26,5 +21,4 @@ jobs:
              cd example  
              chmod +x publish.sh
              ./publish.sh 
-             ls -la  
       
