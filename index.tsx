@@ -7,7 +7,7 @@ interface DataNode {
 }
 export type { DataNode };
 
-function TreeNode({data}) {
+export function TreeNode({data}) {
     const {content, children} = data;
     let item;
     let treeNodesList;

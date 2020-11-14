@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DeepTree = void 0;
+exports.DeepTree = exports.TreeNode = void 0;
 const react_1 = __importDefault(require("react"));
 function TreeNode({ data }) {
     const { content, children } = data;
@@ -20,6 +20,7 @@ function TreeNode({ data }) {
         item,
         treeNodesList));
 }
+exports.TreeNode = TreeNode;
 function DeepTree({ data }) {
     return (react_1.default.createElement("ul", null,
         " ",
