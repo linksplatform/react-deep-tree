@@ -17,14 +17,14 @@ const data: DataNode[] = [
         ],
     },
     {
-        content: "Text of a first level of the first element",
+        content: "Text of a first level of the second element",
         children: [
             {
-                content: "Text of a second level of the first element",
+                content: "Text of a second level of the second element",
                 children: [],
             },
             {
-                content: "Text of a second level of the first element",
+                content: "Text of a second level of the second element",
                 children: [],
             },
         ],
