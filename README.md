@@ -45,6 +45,6 @@ const data : DataNode[] = [
 ];
 
 export default function App() {
-  return <DeepTree data={data}/>;
+  return <DeepTree data={data} />;
 }
 ```
