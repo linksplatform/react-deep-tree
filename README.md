@@ -8,7 +8,7 @@ An attempt to make traversing trees with deep-deep structure user-friendly. Star
 npm i react-deep-tree
 ```
 
-## [Use](https://codesandbox.io/s/react-deep-tree-example-forked-r079n)
+## [Use](https://codesandbox.io/s/intelligent-bird-j5vit)
 
 ```JavaScript
 import React from "react";
