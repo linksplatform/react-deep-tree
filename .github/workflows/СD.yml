@@ -20,5 +20,14 @@ jobs:
              export GITHUB_TOKEN
              cd example  
              chmod +x publish.sh
-             ./publish.sh 
+             ./publish.sh    
+             
+             
+      - name: publication 
+        run: |  
+         npm run lint
+         npm run build
+         npm publish
+             
+       
       
