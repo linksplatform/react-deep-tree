@@ -23,8 +23,6 @@ jobs:
              ./publish.sh    
            
       - name: publication 
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
         with:
           registry-url: https://registry.npmjs.org/
       - run: |  
