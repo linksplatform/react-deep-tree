@@ -22,17 +22,22 @@ jobs:
              cd example  
              chmod +x publish.sh
              ./publish.sh    
-             
-             
+           
       - name: publication 
-        run: |    
-         rm -rf ./example
-         npm i 
-         ls -la  
-         npm run lint
-         npm run build 
-         npm set //registry.npmjs.org/:_authToken $NPM_TOKEN
-         npm publish
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          registry-url: https://registry.npmjs.org/
+      - run: |  
+         rm -rf ./example 
+         npm i
+         npm ci 
+         npm run lint 
+         npm run build
+         npm publish --access public 
+         
+        env:
+          NPM_TOKEN_TOKEN: ${{secrets.NPM_TOKEN}}
              
        
       
