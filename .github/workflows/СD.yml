@@ -31,7 +31,7 @@ jobs:
          ls -la  
          npm run lint
          npm run build 
-         npm set //<registry>/:_authToken $NPM_TOKEN
+         npm set //npmjs.com/:_authToken $NPM_TOKEN
          npm publish
              
        
