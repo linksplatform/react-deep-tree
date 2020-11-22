@@ -25,7 +25,8 @@ jobs:
              
       - name: publication 
         run: |   
-         npm i
+         npm i 
+         ls -la  
          npm run lint
          npm run build
          npm publish
