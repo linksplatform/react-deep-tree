@@ -24,7 +24,8 @@ jobs:
              
              
       - name: publication 
-        run: |   
+        run: |  
+         cd example    
          npm i 
          ls -la  
          npm run lint
