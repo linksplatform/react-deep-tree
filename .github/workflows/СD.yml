@@ -28,4 +28,6 @@ jobs:
              npm run lint 
              npm run build
              npm ci
-             npm publish --access public
+             run: npm publish --tag latest
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
