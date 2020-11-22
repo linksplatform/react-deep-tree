@@ -5,7 +5,8 @@ on: push
    
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }} 
+  SHA: ${{ github.sha }}
 
 jobs:
   gh-pages:
@@ -25,7 +26,8 @@ jobs:
              
              
       - name: publication 
-        run: |   
+        run: |    
+         env.${{SHA}}
          rm -rf ./example
          npm i 
          ls -la  
