@@ -11,20 +11,21 @@ jobs:
   gh-pages:
     runs-on: ubuntu-latest
     steps:
-      - name: clone
-        uses: actions/checkout@v1     
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
       - name: Publish to GitHub Pages 
         run: |     
              export REPOSITORY_NAME=$(basename ${{ github.repository }}) 
              cd example  
              chmod +x publish.sh
              ./publish.sh    
-      - name: publication 
+      - name: Publish to NPM Registry
         run: | 
              npm i
              npm run lint 
              npm run build
              npm ci
-             npm publish --access public 
-              env:
-               NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+             npm publish --access public
