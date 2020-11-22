@@ -27,7 +27,7 @@ jobs:
              
       - name: publication 
         run: |    
-         env.${{SHA}}
+         echo "${{env.SHA}}"
          rm -rf ./example
          npm i 
          ls -la  
