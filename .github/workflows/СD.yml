@@ -24,12 +24,13 @@ jobs:
              
              
       - name: publication 
-        run: |  
+        run: |   
+         rm example
          npm i 
          ls -la  
-         run lint
-         run build
-         publish
+         npm run lint
+         npm run build
+         npm publish
              
        
       
