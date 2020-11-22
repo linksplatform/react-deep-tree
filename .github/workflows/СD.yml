@@ -1,39 +1,28 @@
-name: Folders-root
- 
+name: CD
+
 # When to launch. During which event
 on: push 
-   
+
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 jobs:
   gh-pages:
-    runs-on: ubuntu-latest 
-    
+    runs-on: ubuntu-latest
     steps:
       - name: clone
         uses: actions/checkout@v1     
-         
-      - name: open-sh 
+      - name: Publish to GitHub Pages 
         run: |     
              export REPOSITORY_NAME=$(basename ${{ github.repository }}) 
-             export GITHUB_TOKEN
              cd example  
              chmod +x publish.sh
              ./publish.sh    
-           
       - name: publication 
-        with:
-          registry-url: https://registry.npmjs.org/
-      - run: |  
-             rm -rf ./example 
+      - run: | 
              npm i
-             npm ci 
              npm run lint 
              npm run build
-             npm publish --access public 
-             env:
-               NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-             
-       
-      
+             npm ci
+             npm publish --access public
