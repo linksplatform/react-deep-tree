@@ -20,7 +20,7 @@ jobs:
              chmod +x publish.sh
              ./publish.sh    
       - name: publication 
-      - run: | 
+        run: | 
              npm i
              npm run lint 
              npm run build
