@@ -5,24 +5,14 @@ import { motion } from "framer-motion";
 
 const MotionBox = motion(Box as any);
 
+const numBoxes = 100;
+const indentations = Array.from({ length: numBoxes }, (_, i) => i * 100);
+
 const ChakraBoxes = () => {
-  const [numBoxes, setNumBoxes] = useState(100); // Default number of boxes
-  const [indentations, setIndentations] = useState(Array.from({ length: numBoxes }, (_, i) => i * 100)); // Initial indentations
   const [highlightedIndex, setHighlightedIndex] = useState(null); // Index of the box in the center
   const [offset, setOffset] = useState(0);
   const boxRefs = useRef([]); // Ref array to hold references to each box
   const canvasRef = useRef();
-
-  // Function to handle number of boxes change
-  const handleNumBoxesChange = (e) => {
-    const value = parseInt(e.target.value) || 0;
-    setNumBoxes(value);
-
-    // Update the indentation array when number of boxes changes
-    setIndentations(
-      Array.from({ length: value }, (_, i) => i * 100) // Example: indentation increases by 10px per box
-    );
-  };
 
   const calculateClosestBoxToCenter = () => {
     if (!canvasRef.current) {
@@ -64,13 +54,6 @@ const ChakraBoxes = () => {
 
   return (
     <Box overflowX={'hidden'}>
-      <Input
-        type="number"
-        value={numBoxes}
-        onChange={handleNumBoxesChange}
-        placeholder="Enter number of boxes"
-        width="200px"
-      />
       <MotionBox
         ref={canvasRef}
         animate={{ marginLeft: `${-offset}px` }} // Animation on margin change
