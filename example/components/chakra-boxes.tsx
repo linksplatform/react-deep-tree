@@ -7,35 +7,35 @@ const indentations = Array.from({ length: numBoxes }, (_, i) => i * 100);
 const ChakraBoxes = () => {
   const [highlightedIndex, setHighlightedIndex] = useState(0); 
   const [offset, setOffset] = useState(0);
-  const [scrollPercentage, setScrollPercentage] = useState(0); 
+  const [scrollRatio, setScrollRatio] = useState(0); // Save ratio instead of percentage
 
-  const calculateScrollPercentage = () => {
+  const calculateScrollRatio = () => {
     const scrollTop = window.scrollY; 
-    const docHeight = document.documentElement.scrollHeight; 
-    const winHeight = window.innerHeight; 
+    const documentHeight = document.documentElement.scrollHeight; 
+    const windowHeight = window.innerHeight; 
 
-    const totalScrollable = docHeight - winHeight;
-    const scrolled = (scrollTop / totalScrollable) * 100;
+    const totalScrollable = documentHeight - windowHeight;
+    const ratio = scrollTop / totalScrollable;
 
-    setScrollPercentage(scrolled);
+    setScrollRatio(ratio);
 
-    const calculatedIndex = Math.round((scrolled / 100) * (numBoxes - 1));
+    const calculatedIndex = Math.round(ratio * (numBoxes - 1));
     setHighlightedIndex(calculatedIndex);
     setOffset(indentations[calculatedIndex]);
   };
 
   useEffect(() => {
-    calculateScrollPercentage();
-    window.addEventListener('scroll', calculateScrollPercentage);
+    calculateScrollRatio();
+    window.addEventListener('scroll', calculateScrollRatio);
     return () => {
-      window.removeEventListener('scroll', calculateScrollPercentage);
+      window.removeEventListener('scroll', calculateScrollRatio);
     };
   }, [numBoxes]);
 
   return (
     <Box overflowX={'hidden'}>
       <Text fontFamily="monospace" position="fixed" top={0} right={0} p={4} fontSize="lg" zIndex={1}>
-        Scroll Percentage: {scrollPercentage.toFixed(2).padStart(5, '0')}%
+        Scroll Percentage: {(scrollRatio*100).toFixed(2).padStart(5, '0')}%
       </Text>
       <Box
         marginLeft={`${-offset}px`}
