@@ -1,13 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Box, Input, VStack } from "@chakra-ui/react";
 
+import { motion } from "framer-motion";
+
+const MotionBox = motion(Box as any);
+
 const ChakraBoxes = () => {
   const [numBoxes, setNumBoxes] = useState(100); // Default number of boxes
-  const [indentations, setIndentations] = useState(Array.from({ length: numBoxes }, (_, i) => i * 10)); // Initial indentations
+  const [indentations, setIndentations] = useState(Array.from({ length: numBoxes }, (_, i) => i * 100)); // Initial indentations
   const [highlightedIndex, setHighlightedIndex] = useState(null); // Index of the box in the center
   const [offset, setOffset] = useState(0);
   const boxRefs = useRef([]); // Ref array to hold references to each box
-  const stackRef = useRef();
+  const canvasRef = useRef();
 
   // Function to handle number of boxes change
   const handleNumBoxesChange = (e) => {
@@ -16,12 +20,12 @@ const ChakraBoxes = () => {
 
     // Update the indentation array when number of boxes changes
     setIndentations(
-      Array.from({ length: value }, (_, i) => i * 10) // Example: indentation increases by 10px per box
+      Array.from({ length: value }, (_, i) => i * 100) // Example: indentation increases by 10px per box
     );
   };
 
   const calculateClosestBoxToCenter = () => {
-    if (!stackRef.current) {
+    if (!canvasRef.current) {
       return;
     }
     const viewportHeight = window.innerHeight;
@@ -67,31 +71,41 @@ const ChakraBoxes = () => {
         placeholder="Enter number of boxes"
         width="200px"
       />
-      <VStack
-        ref={stackRef} 
-        spacing={4}
-        marginLeft={`${-offset}px`}
+      <MotionBox
+        ref={canvasRef}
+        animate={{ marginLeft: `${-offset}px` }} // Animation on margin change
+        transition={{
+          duration: 0.4,
+          // ease: "easeIn", // Built-in easing function
+          ease: "easeOut", // Built-in easing function
+          // ease: "linear", // Built-in easing function
+        }} // Adjust the transition duration
+        paddingTop={`50vh`}
+        paddingBottom={`50vh`}
       >
-        {Array.from({ length: numBoxes }).map((_, index) => (
-          <Box
-            key={index}
-            ref={(el) => (boxRefs.current[index] = el)} // Assign the ref to the box
-            width="200px"
-            height="50px"
-            bg={highlightedIndex === index ? "yellow.300" : "teal.300"} // Highlight the box closest to center
-            mt={4}
-            ml={`${indentations[index]}px`} // Adjust left margin for indentation
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            transition="background-color 0.3s ease"
-          >
-            Box {index + 1}
-          </Box>
-        ))}
-      </VStack>
+        <VStack
+          spacing={4}
+        >
+          {Array.from({ length: numBoxes }).map((_, index) => (
+            <Box
+              key={index}
+              ref={(el) => (boxRefs.current[index] = el)} // Assign the ref to the box
+              width="200px"
+              height="50px"
+              bg={highlightedIndex === index ? "yellow.300" : "teal.300"} // Highlight the box closest to center
+              mt={4}
+              ml={`${indentations[index]}px`} // Adjust left margin for indentation
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              transition="background-color 0.3s ease"
+            >
+              Box {index + 1}
+            </Box>
+          ))}
+        </VStack>
+      </MotionBox>
     </Box>
-
   );
 };
 
