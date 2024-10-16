@@ -5,18 +5,23 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next build && next start",
     "export": "next build && next export"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.2.4",
+    "@chakra-ui/react": "^2.10.3",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "framer-motion": "^11.11.9",
+    "next": "14.2.15",
+    "react": "18.3.1",
     "react-deep-tree": "linksplatform/react-deep-tree#master",
-    "next": "12.1.0",
-    "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "18.3.1"
   },
   "devDependencies": {
-    "@types/node": "^14.14.6",
-    "@types/react": "^16.9.56",
-    "typescript": "^4.0.5"
+    "@types/node": "^22.7.5",
+    "@types/react": "18.3.11",
+    "typescript": "^5.6.3"
   }
 }
