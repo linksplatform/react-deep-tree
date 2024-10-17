@@ -208,6 +208,7 @@ const HorizontalScrollAnimation = () => {
 import { motion } from "framer-motion";
 import ScrollSync from "../components/scroll-sync";
 import ChakraBoxes from "../components/chakra-boxes";
+import ChatApp from "../components/chat";
 
 const MotionBox = motion(Box as any);
 
@@ -239,6 +240,7 @@ export default function Index() {
     {/* <HorizontalScrollAnimation></HorizontalScrollAnimation> */}
     {/* <HorizontalScrollWithFramer></HorizontalScrollWithFramer> */}
     {/* <ScrollSync></ScrollSync> */}
-    <ChakraBoxes></ChakraBoxes>
+    {/* <ChakraBoxes></ChakraBoxes> */}
+    <ChatApp></ChatApp>
   </ChakraProvider>;
 }
