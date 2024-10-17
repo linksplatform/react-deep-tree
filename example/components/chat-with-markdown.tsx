@@ -1,10 +1,23 @@
-import React, { useState } from 'react';
-import { ChakraProvider, Box, Input, Button, VStack, HStack, Avatar, Text } from '@chakra-ui/react';
+import React, { useState, useRef, useEffect } from 'react';
+import { ChakraProvider, Box, Textarea, Button, VStack, HStack, Avatar, Text } from '@chakra-ui/react';
 import ReactMarkdown from 'react-markdown';
 
-function ChatAppWithMarkdown() {
+function ChatApp() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
+  const textareaRef = useRef(null);
+
+  // Maximum height of the textarea should be 30% of the viewport height
+  const maxHeight = window.innerHeight * 0.3;
+
+  // Adjust textarea height based on content
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = 'auto'; // Reset the height
+      const newHeight = Math.min(textareaRef.current.scrollHeight, maxHeight); // Set to scroll height or maxHeight
+      textareaRef.current.style.height = `${newHeight}px`;
+    }
+  }, [input]); // Recalculate height when input changes
 
   const sendMessage = () => {
     if (input.trim() !== "") {
@@ -51,12 +64,16 @@ function ChatAppWithMarkdown() {
         </VStack>
 
         {/* Input Section */}
-        <HStack mt={4} spacing={2}>
-          <Input
+        <HStack mt={4} spacing={2} align="end">
+          <Textarea
+            ref={textareaRef}
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type a message with Markdown..."
             bg="white"
+            resize="none" // Disable manual resize
+            maxH={`${maxHeight}px`} // Set maximum height
+            overflow="hidden" // Hide overflow when max height is reached
             flex="1"
           />
           <Button colorScheme="blue" onClick={sendMessage}>
@@ -68,4 +85,4 @@ function ChatAppWithMarkdown() {
   );
 }
 
-export default ChatAppWithMarkdown;
+export default ChatApp;
