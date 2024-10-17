@@ -209,6 +209,7 @@ import { motion } from "framer-motion";
 import ScrollSync from "../components/scroll-sync";
 import ChakraBoxes from "../components/chakra-boxes";
 import ChatApp from "../components/chat";
+import ChatAppWithMarkdown from "../components/chat-with-markdown";
 
 const MotionBox = motion(Box as any);
 
@@ -241,6 +242,7 @@ export default function Index() {
     {/* <HorizontalScrollWithFramer></HorizontalScrollWithFramer> */}
     {/* <ScrollSync></ScrollSync> */}
     {/* <ChakraBoxes></ChakraBoxes> */}
-    <ChatApp></ChatApp>
+    {/* <ChatApp></ChatApp> */}
+    <ChatAppWithMarkdown></ChatAppWithMarkdown>
   </ChakraProvider>;
 }
