@@ -18,7 +18,7 @@ const ChakraMarkdown = React.memo<any>(({ content }) => {
     ),
     code: ({ inline, children, className }) => {
       const language = className ? className.replace('language-', '') : 'plaintext';
-      const code = String(children);
+      const code = String(children).trim();
       if (inline) {
         return <Text as="code" bg={useColorModeValue("gray.100", "gray.700")} p="1" borderRadius="md">{code}</Text>;
       }
@@ -40,6 +40,10 @@ const ChakraMarkdown = React.memo<any>(({ content }) => {
               scrollBeyondLastLine: false,
               lineNumbers: "off",
               scrollbar: { vertical: 'hidden' },
+              overviewRulerLanes: 0,       // Disable the overview ruler
+              hideCursorInOverviewRuler: true,  // Hide cursor in the ruler
+              folding: false,               // Disable code folding
+              glyphMargin: false,           // Hide the glyph margin (left margin with icons)
             }}
           />
         </Box>
