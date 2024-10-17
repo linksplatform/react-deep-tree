@@ -28,7 +28,12 @@ const ChakraMarkdown = React.memo<any>(({ content }) => {
         setEditorHeight(`${lines * lineHeight}px`);
       }, [children]);
       return (
-        <Box border="1px solid" borderColor={useColorModeValue("gray.200", "gray.600")} borderRadius="md" overflow="visible" my={2}>
+        <Box
+          border="1px solid"
+          borderColor={useColorModeValue("gray.200", "gray.600")}
+          borderRadius="0"
+          overflow="visible"
+          my={2}>
           <MonacoEditor
             height={editorHeight}
             language={language}
@@ -40,17 +45,22 @@ const ChakraMarkdown = React.memo<any>(({ content }) => {
               scrollBeyondLastLine: false,
               lineNumbers: "off",
               scrollbar: { vertical: 'hidden' },
-              overviewRulerLanes: 0,       // Disable the overview ruler
-              hideCursorInOverviewRuler: true,  // Hide cursor in the ruler
-              folding: false,               // Disable code folding
-              glyphMargin: false,           // Hide the glyph margin (left margin with icons)
-              contextmenu: false,           // Disable default context menu
+              overviewRulerLanes: 0,             // Disable the overview ruler
+              hideCursorInOverviewRuler: true,   // Hide cursor in the ruler
+              folding: false,                    // Disable code folding
+              glyphMargin: false,                // Hide the glyph margin (left margin with icons)
+              renderLineHighlight: 'none',       // Disable the current line highlight
             }}
             onMount={(editor, monaco) => {
-              // Disable the right-click context menu
-              editor.onContextMenu((e) => {
-                e.event.preventDefault(); // Prevent default context menu
-              });
+              const keepIds = ["editor.action.clipboardCopyAction"];
+              const contextmenu = editor.getContribution('editor.contrib.contextmenu');
+              const realMethod = contextmenu._getMenuActions;
+              contextmenu._getMenuActions = function () {
+                const items = realMethod.apply(contextmenu, arguments);
+                return items.filter(function (item) {
+                  return keepIds.includes(item.id);
+                });
+              };
             }}
           />
         </Box>
