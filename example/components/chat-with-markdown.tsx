@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { ChakraProvider, Box, Textarea, Button, VStack, HStack, Avatar, Text, Link as ChakraLink, Heading, useColorMode, useColorModeValue } from '@chakra-ui/react';
-import ReactMarkdown from 'react-markdown';
-import MonacoEditor from '@monaco-editor/react'; // Monaco Editor
+import { ChakraProvider, Box, Textarea, Button, VStack, HStack, Avatar, Text, useColorModeValue } from '@chakra-ui/react';
+import ChakraMarkdown from './chakra-markdown'; // Import the renamed component
 
 function ChatApp() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
-  const { colorMode, toggleColorMode } = useColorMode(); // Chakra color mode
 
   const sendMessage = () => {
     if (input.trim() !== "") {
@@ -19,43 +17,6 @@ function ChatApp() {
       setMessages([...messages, newMessage]);
       setInput("");
     }
-  };
-
-  // Dynamic theme for Monaco Editor based on Chakra UI color mode
-  const monacoTheme = colorMode === 'dark' ? 'vs-dark' : 'vs-light';
-
-  // Custom renderers for Markdown components using Chakra UI and Monaco Editor for code blocks
-  const renderers = {
-    h1: ({ children }) => <Heading as="h1" size="xl" mb={2}>{children}</Heading>,
-    h2: ({ children }) => <Heading as="h2" size="lg" mb={2}>{children}</Heading>,
-    h3: ({ children }) => <Heading as="h3" size="md" mb={2}>{children}</Heading>,
-    a: ({ href, children }) => (
-      <ChakraLink href={href} color="blue.500" isExternal>
-        {children}
-      </ChakraLink>
-    ),
-    code: ({ inline, children, className }) => {
-      const language = className ? className.replace('language-', '') : 'plaintext';
-      if (inline) {
-        return <Text as="code" bg={useColorModeValue("gray.100", "gray.700")} p="1" borderRadius="md">{children}</Text>;
-      }
-      return (
-        <Box border="1px solid" borderColor={useColorModeValue("gray.200", "gray.600")} borderRadius="md" overflow="hidden" my={2}>
-          <MonacoEditor
-            height="200px"
-            language={language}
-            theme={monacoTheme}
-            value={String(children).trim()}
-            options={{
-              readOnly: true,
-              minimap: { enabled: false },
-              scrollBeyondLastLine: false,
-              lineNumbers: "off",
-            }}
-          />
-        </Box>
-      );
-    },
   };
 
   return (
@@ -79,7 +40,8 @@ function ChatApp() {
                 <Text fontSize="sm" fontWeight="bold">
                   {message.sender}
                 </Text>
-                <ReactMarkdown components={renderers} children={message.text} />
+                {/* Rendering the message text with markdown support */}
+                <ChakraMarkdown content={message.text} />
                 <Text fontSize="xs" color="gray.500">
                   {message.timestamp}
                 </Text>
