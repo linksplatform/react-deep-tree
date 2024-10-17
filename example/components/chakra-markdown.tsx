@@ -46,6 +46,12 @@ const ChakraMarkdown = React.memo<any>(({ content }) => {
               glyphMargin: false,           // Hide the glyph margin (left margin with icons)
               contextmenu: false,           // Disable default context menu
             }}
+            onMount={(editor, monaco) => {
+              // Disable the right-click context menu
+              editor.onContextMenu((e) => {
+                e.event.preventDefault(); // Prevent default context menu
+              });
+            }}
           />
         </Box>
       );
