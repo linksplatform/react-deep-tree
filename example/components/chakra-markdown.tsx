@@ -3,14 +3,10 @@ import { Box, Text, Link as ChakraLink, Heading, useColorModeValue, useColorMode
 import MonacoEditor from '@monaco-editor/react';
 import ReactMarkdown from 'react-markdown';
 
-function ChakraMarkdown({ content }) {
-  // Access Chakra's color mode
+const ChakraMarkdown = React.memo<any>(({ content }) => {
   const { colorMode } = useColorMode();
-
-  // Dynamic theme for Monaco Editor based on Chakra UI color mode
   const monacoTheme = colorMode === 'dark' ? 'vs-dark' : 'vs-light';
 
-  // Custom renderers for Markdown components using Chakra UI and Monaco Editor for code blocks
   const renderers = {
     h1: ({ children }) => <Heading as="h1" size="xl" mb={2}>{children}</Heading>,
     h2: ({ children }) => <Heading as="h2" size="lg" mb={2}>{children}</Heading>,
@@ -45,6 +41,6 @@ function ChakraMarkdown({ content }) {
   };
 
   return <ReactMarkdown components={renderers} children={content} />;
-}
+});
 
 export default ChakraMarkdown;
