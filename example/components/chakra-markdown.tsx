@@ -44,6 +44,7 @@ const ChakraMarkdown = React.memo<any>(({ content }) => {
               hideCursorInOverviewRuler: true,  // Hide cursor in the ruler
               folding: false,               // Disable code folding
               glyphMargin: false,           // Hide the glyph margin (left margin with icons)
+              contextmenu: false,           // Disable default context menu
             }}
           />
         </Box>
