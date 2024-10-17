@@ -50,6 +50,7 @@ const ChakraMarkdown = React.memo<any>(({ content }) => {
               folding: false,                    // Disable code folding
               glyphMargin: false,                // Hide the glyph margin (left margin with icons)
               renderLineHighlight: 'none',       // Disable the current line highlight
+              cursorWidth: 1,
             }}
             onMount={(editor, monaco) => {
               const keepIds = ["editor.action.clipboardCopyAction"];
