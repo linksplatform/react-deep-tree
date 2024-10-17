@@ -28,7 +28,7 @@ const ChakraMarkdown = React.memo<any>(({ content }) => {
         setEditorHeight(`${lines * lineHeight}px`);
       }, [children]);
       return (
-        <Box border="1px solid" borderColor={useColorModeValue("gray.200", "gray.600")} borderRadius="md" overflow="hidden" my={2}>
+        <Box border="1px solid" borderColor={useColorModeValue("gray.200", "gray.600")} borderRadius="md" overflow="visible" my={2}>
           <MonacoEditor
             height={editorHeight}
             language={language}
