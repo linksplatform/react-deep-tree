@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ChakraProvider, Box, Textarea, Button, VStack, HStack, Avatar, Text, Link as ChakraLink, Heading } from '@chakra-ui/react';
 import ReactMarkdown from 'react-markdown';
+import MonacoEditor from '@monaco-editor/react'; // Monaco Editor
 
 function ChatApp() {
   const [messages, setMessages] = useState([]);
@@ -19,7 +20,7 @@ function ChatApp() {
     }
   };
 
-  // Custom renderers for Markdown components using Chakra UI
+  // Custom renderers for Markdown components using Chakra UI and Monaco Editor for code blocks
   const renderers = {
     // Render headers using Chakra's Heading component
     h1: ({ children }) => <Heading as="h1" size="xl" mb={2}>{children}</Heading>,
@@ -32,6 +33,30 @@ function ChatApp() {
         {children}
       </ChakraLink>
     ),
+
+    // Use Monaco Editor for code blocks
+    code: ({ inline, children, className }) => {
+      const language = className ? className.replace('language-', '') : 'plaintext';
+      if (inline) {
+        return <Text as="code" bg="gray.100" p="1" borderRadius="md">{children}</Text>;
+      }
+      return (
+        <Box border="1px solid" borderColor="gray.200" borderRadius="md" overflow="hidden" my={2}>
+          <MonacoEditor
+            height="200px"
+            language={language}
+            theme="vs-dark"
+            value={String(children).trim()}
+            options={{
+              readOnly: true,
+              minimap: { enabled: false },
+              scrollBeyondLastLine: false,
+              lineNumbers: "off",
+            }}
+          />
+        </Box>
+      );
+    },
   };
 
   return (
@@ -51,7 +76,7 @@ function ChatApp() {
           {messages.map((message) => (
             <HStack key={message.id} align="start" w="100%">
               <Avatar name={message.sender} size="sm" />
-              <Box bg="blue.50" p={3} borderRadius="lg" maxW="80%">
+              <Box bg="blue.50" p={3} borderRadius="lg" width="80%">
                 <Text fontSize="sm" fontWeight="bold">
                   {message.sender}
                 </Text>
@@ -72,8 +97,8 @@ function ChatApp() {
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type a message with Markdown..."
             bg="white"
-            resize="none" // Disable manual resize
-            overflow="hidden" // Hide overflow when max height is reached
+            resize="none"
+            overflow="hidden"
             flex="1"
           />
           <Button colorScheme="blue" onClick={sendMessage}>
