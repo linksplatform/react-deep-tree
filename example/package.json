@@ -15,6 +15,7 @@
     "@emotion/styled": "^11.13.0",
     "@monaco-editor/react": "^4.6.0",
     "framer-motion": "^11.11.9",
+    "lodash": "^4.17.21",
     "next": "14.2.15",
     "react": "18.3.1",
     "react-deep-tree": "linksplatform/react-deep-tree#master",
