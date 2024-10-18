@@ -12,6 +12,12 @@ import {
   HStack
 } from '@chakra-ui/react';
 import { SunIcon, MoonIcon } from '@chakra-ui/icons';
+// import { HStack, Box } from "@chakra-ui/react";
+import { motion } from "framer-motion";
+import ScrollSync from "../components/scroll-sync";
+import ChakraBoxes from "../components/chakra-boxes";
+import ChatApp from "../components/chat";
+import ChatAppWithMarkdown from "../components/chat-with-markdown";
 
 const data: DataNode[] = [
   {
@@ -204,14 +210,7 @@ const HorizontalScrollAnimation = () => {
   );
 };
 
-// import { HStack, Box } from "@chakra-ui/react";
-import { motion } from "framer-motion";
-import ScrollSync from "../components/scroll-sync";
-import ChakraBoxes from "../components/chakra-boxes";
-import ChatApp from "../components/chat";
-import ChatAppWithMarkdown from "../components/chat-with-markdown";
-
-const MotionBox = motion(Box as any);
+const MotionBox = motion.create(Box as any);
 
 const HorizontalScrollWithFramer = () => {
   return (
