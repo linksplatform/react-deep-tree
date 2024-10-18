@@ -6,6 +6,10 @@ function ChatApp() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
 
+  const bgColor = useColorModeValue("gray.100", "gray.900");
+  const chatBgColor = useColorModeValue("white", "gray.800");
+  const messageBgColor = useColorModeValue("blue.50", "blue.900");
+
   const sendMessage = () => {
     if (input.trim() !== "") {
       const newMessage = {
@@ -21,11 +25,11 @@ function ChatApp() {
 
   return (
     <ChakraProvider>
-      <Box bg={useColorModeValue("gray.100", "gray.900")} h="100vh" p={4} display="flex" flexDirection="column">
+      <Box bg={bgColor} h="100vh" p={4} display="flex" flexDirection="column">
         {/* Chat Messages Display */}
         <VStack
           flex="1"
-          bg={useColorModeValue("white", "gray.800")}
+          bg={chatBgColor}
           w="100%"
           overflowY="auto"
           p={4}
@@ -36,7 +40,7 @@ function ChatApp() {
           {messages.map((message) => (
             <HStack key={message.id} align="start" w="100%">
               <Avatar name={message.sender} size="sm" />
-              <Box bg={useColorModeValue("blue.50", "blue.900")} p={3} borderRadius="lg" width="80%">
+              <Box bg={messageBgColor} p={3} borderRadius="lg" width="80%">
                 <Text fontSize="sm" fontWeight="bold">
                   {message.sender}
                 </Text>
@@ -56,7 +60,7 @@ function ChatApp() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type a message with Markdown..."
-            bg={useColorModeValue("white", "gray.800")}
+            bg={chatBgColor}
             resize="none"
             overflow="hidden"
             flex="1"
