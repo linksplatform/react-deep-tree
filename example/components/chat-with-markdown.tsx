@@ -1,11 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { ChakraProvider, Box, Textarea, Button, VStack, HStack, Avatar, Text, useColorModeValue } from '@chakra-ui/react';
+import React, { useState } from 'react';
+import { ChakraProvider, Box, Button, VStack, HStack, Avatar, Text, useColorModeValue } from '@chakra-ui/react';
 import ChakraMarkdown from './chakra-markdown'; // Import the renamed component
+import MonacoMarkdownEditor from './monaco-markdown-editor';
 
 function ChatApp() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
-  const textareaRef = useRef(null);
 
   const bgColor = useColorModeValue("gray.100", "gray.900");
   const chatBgColor = useColorModeValue("white", "gray.800");
@@ -21,25 +21,8 @@ function ChatApp() {
       };
       setMessages([...messages, newMessage]);
       setInput("");
-      if (textareaRef.current) {
-        textareaRef.current.style.height = "auto"; // Reset textarea height after sending
-      }
     }
   };
-
-  // Function to adjust the height of the textarea
-  const autoResizeTextarea = () => {
-    const maxTextareaHeight = window.innerHeight * 0.3; // 30% of screen height
-    if (textareaRef.current) {
-      textareaRef.current.style.height = "auto"; // Reset the height
-      textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, maxTextareaHeight)}px`; // Adjust the height, limiting to 30%
-    }
-  };
-
-  useEffect(() => {
-    // Run the resize function when the input value changes
-    autoResizeTextarea();
-  }, [input]);
 
   return (
     <ChakraProvider>
@@ -74,17 +57,13 @@ function ChatApp() {
 
         {/* Input Section */}
         <HStack mt={4} spacing={2} align="end">
-          <Textarea
-            ref={textareaRef}
+          <MonacoMarkdownEditor
             value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onInput={autoResizeTextarea} // Call onInput to trigger auto-resize
+            onChange={setInput}
+            onEnter={sendMessage}
             placeholder="Type a message with Markdown..."
-            bg={chatBgColor}
-            resize="none"
-            overflow="hidden"
-            flex="1"
-            maxHeight={`30vh`} // Max height: 30% of screen height
+            maxHeight="30vh"
+            minHeight="60px"
           />
           <Button colorScheme="blue" onClick={sendMessage}>
             Send
