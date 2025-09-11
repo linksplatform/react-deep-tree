@@ -13,17 +13,21 @@ function calculateChildrenHeight(parentDiv) {
   return childrenHeight;
 }
 
-const ChakraMarkdown = React.memo<any>(({ content }) => {
+interface ChakraMarkdownProps {
+  content: string;
+}
+
+const ChakraMarkdown = React.memo<ChakraMarkdownProps>(({ content }) => {
   const renderers = {
-    h1: ({ children }) => <Heading as="h1" size="xl" mb={2}>{children}</Heading>,
-    h2: ({ children }) => <Heading as="h2" size="lg" mb={2}>{children}</Heading>,
-    h3: ({ children }) => <Heading as="h3" size="md" mb={2}>{children}</Heading>,
-    a: ({ href, children }) => (
-      <ChakraLink href={href} color="blue.500" isExternal>
+    h1: ({ children }: any) => <Heading as="h1" size="xl" mb={2}>{children}</Heading>,
+    h2: ({ children }: any) => <Heading as="h2" size="lg" mb={2}>{children}</Heading>,
+    h3: ({ children }: any) => <Heading as="h3" size="md" mb={2}>{children}</Heading>,
+    a: ({ href, children, ...props }: any) => (
+      <ChakraLink href={href} color="blue.500" isExternal {...props}>
         {children}
       </ChakraLink>
     ),
-    code: ({ inline, children, className }) => {
+    code: ({ inline, children, className }: any) => {
       const { colorMode } = useColorMode();
       const monacoTheme = colorMode === 'dark' ? 'vs-dark' : 'vs-light';
 
